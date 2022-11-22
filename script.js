@@ -1,45 +1,37 @@
 
-const choicesArray = ["rock", "paper", "scissors"]
+const choicesArray = ["rock", "paper", "scissors"];
 
 // program to get a random item from an array
 
 function getComputerChoice() {
 
-    // get random index value
-    const randomIndex = Math.floor(Math.random() * choicesArray.length);
-
     // get random item
-    const computerChoice = choicesArray[randomIndex];
+    let computerChoice = choicesArray[Math.floor(Math.random() * choicesArray.length)];
 
     return computerChoice;
 }
 
-let userInput = window.prompt('Choose one! Rock, Paper or Scissors?');
-
-function playerSelection(){
-    let playerSelection = userInput.toLowerCase();
-    return playerSelection;
-}
-
-const computerSelection = getComputerChoice();
-
-
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === "rock" & computerSelection === "paper"){
-        alert("You Lose! Paper beats Rock")
-    } else if (playerSelection === "rock" & computerSelection === "scissors"){
-        alert("You Win! Rock beats Scissors")
-    } else if (playerSelection === "paper" & computerSelection === "rock"){
-        alert("You Win! Paper beats Rock")
-    } else if (playerSelection === "paper" & computerSelection === "scissors"){
-        alert("You Lose! Scissors beats Paper")
-    } else if (playerSelection === "scissors" & computerSelection === "rock"){
-        alert("You Lose! Rock beats Scissors")
-    } else if (playerSelection === "scissors" & computerSelection === "paper"){
-        alert("You Win! Scissors beats Paper")
-    } else {
-        alert("Try again! That's a tie")
+function playRound(userInput, computerSelection) {
+    if (userInput === computerSelection) {
+        return ("It's a draw!");
+      } else if ((userInput === "rock") && (computerSelection === "scissors")) {
+        return ("You win! Rock beats scissors");
+      } else if (userInput === "rock" && computerSelection === "paper") {
+        return ("You lose! Paper beats rock");
+      } else if (userInput === "paper" && computerSelection === "rock") {
+        return ("You win! Paper beats rock");
+      } else if (userInput === "paper" && computerSelection === "scissors") {
+        return ("You lose! Scissors beat paper");
+      } else if (userInput === "scissors" && computerSelection === "paper") {
+        return ("You win! Scissors beat paper");
+      } else if (userInput === "scissors" && computerSelection === "rock") {
+        return ("You lose!Rock beats scissors");
+      }
     }
-}
 
-playRound();
+
+let userInput = window.prompt('Choose one! Rock, Paper or Scissors?').toLowerCase();
+let computerSelection = getComputerChoice();
+
+console.log(computerSelection);
+console.log(playRound(userInput, computerSelection))
