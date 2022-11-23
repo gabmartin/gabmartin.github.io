@@ -25,21 +25,36 @@ const computerSelection = getComputerChoice();
 
 
 function playRound(playerSelection, computerSelection) {
+    var playerScore = 0;
+    var computerScore = 0;
     if (playerSelection === "rock" & computerSelection === "paper"){
-        alert("You Lose! Paper beats Rock")
+        alert("You Lose! Paper beats Rock");
+        computerScore++;
     } else if (playerSelection === "rock" & computerSelection === "scissors"){
-        alert("You Win! Rock beats Scissors")
+        alert("You Win! Rock beats Scissors");
+        playerScore++;
     } else if (playerSelection === "paper" & computerSelection === "rock"){
-        alert("You Win! Paper beats Rock")
+        alert("You Win! Paper beats Rock");
+        playerScore++;
     } else if (playerSelection === "paper" & computerSelection === "scissors"){
-        alert("You Lose! Scissors beats Paper")
+        alert("You Lose! Scissors beats Paper");
+        computerScore++;
     } else if (playerSelection === "scissors" & computerSelection === "rock"){
-        alert("You Lose! Rock beats Scissors")
+        alert("You Lose! Rock beats Scissors");
+        computerScore++;
     } else if (playerSelection === "scissors" & computerSelection === "paper"){
-        alert("You Win! Scissors beats Paper")
+        alert("You Win! Scissors beats Paper");
+        playerScore++;
     } else {
-        alert("Try again! That's a tie")
+        alert("Try again! That's a tie");
     }
 }
 
-playRound();
+function game(){
+    for (i = 0; i < 5; i++){
+        playRound();
+        console.log(playerScore);
+        console.log(computerScore);
+    }
+    
+}
