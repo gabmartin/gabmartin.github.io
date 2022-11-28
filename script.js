@@ -56,15 +56,3 @@ function game(){
 }
 
 game();
-<<<<<<< HEAD
-
-=======
-
-
-// Comprobaciones de funcionamiento en la consola.
-
-console.log(computerSelection);
-console.log(playRound(userInput, computerSelection));
-console.log(playerScore);
-console.log(computerScore);
->>>>>>> 0c6b5373a3340a30651f7e566d075278f84485c3
