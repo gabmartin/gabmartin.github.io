@@ -1,5 +1,4 @@
 
-
 const choicesArray = ["rock", "paper", "scissors"];
 let playerScore = 0;
 let computerScore = 0;
@@ -17,31 +16,46 @@ function getComputerChoice() {
 
 function playRound(userInput, computerSelection) {
     if (userInput === computerSelection) {
-        return ("It's a draw!");
+        console.log("It's a draw!");
       } else if ((userInput === "rock") && (computerSelection === "scissors")) {
         playerScore++;
-        return ("You win! Rock beats scissors");
+        console.log("You win! Rock beats scissors");
       } else if (userInput === "rock" && computerSelection === "paper") {
         computerScore++;
-        return ("You lose! Paper beats rock");
+        console.log("You lose! Paper beats rock");
       } else if (userInput === "paper" && computerSelection === "rock") {
         playerScore++;
-        return ("You win! Paper beats rock");
+        console.log("You win! Paper beats rock");
       } else if (userInput === "paper" && computerSelection === "scissors") {
         computerScore++;
-        return ("You lose! Scissors beat paper");
+        console.log("You lose! Scissors beats paper");
       } else if (userInput === "scissors" && computerSelection === "paper") {
         playerScore++;
-        return ("You win! Scissors beat paper");
+        console.log("You win! Scissors beats paper");
       } else if (userInput === "scissors" && computerSelection === "rock") {
         computerScore++;
-        return ("You lose!Rock beats scissors");
+        console.log("You lose!Rock beats scissors");
       }
     }
 
+function game(){
+  for (let i = 0; i < 5; i++){
+    let userInput = window.prompt('Choose one! Rock, Paper or Scissors?').toLowerCase();
+    let computerSelection = getComputerChoice();
+    console.log("Player =", userInput, "Computer =", computerSelection)
+    playRound(userInput, computerSelection);
+    console.log("Player =", playerScore, "Computer =", computerScore);
+  }
+  if (playerScore > computerScore){
+    console.log("GAME OVER: Congratulations! You're the winner!")
+  } else if (playerScore < computerScore){
+    console.log("GAME OVER: Oh no! You lost...");
+  } else {
+    console.log("GAME OVER: It's a tie!");
+  }
+}
 
-let userInput = window.prompt('Choose one! Rock, Paper or Scissors?').toLowerCase();
-let computerSelection = getComputerChoice();
+game();
 
 
 // Comprobaciones de funcionamiento en la consola.
