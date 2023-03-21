@@ -1,16 +1,22 @@
 const choicesArray = ["rock", "paper", "scissors"];
 let playerScore = 0;
 let computerScore = 0;
-let buttons = document.querySelectorAll("button");
+let playerSelection = undefined;
 
 // Query selectors para actualizar el UI en cada ronda. 
 
+let buttons = document.querySelectorAll(".choice");
 let resultsRound = document.querySelector("#results");
 let score = document.querySelector("#score");
 let playerSign = document.querySelector("#playerSign");
 let computerSign = document.querySelector("#computerSign");
 
-let playerSelection = undefined;
+// Query selectors para el modal.
+
+let modal = document.querySelector(".modal");
+let playAgain = document.querySelector(".modal button");
+let gameOver = document.querySelector(".modal p");
+
 
 // Funcion que genera una elección del ordenador aleatoria.
 
@@ -65,9 +71,11 @@ function game() {
     playRound(playerSelection, computerSelection);
     updateUI(playerSelection, computerSelection)
   } else if (playerScore == 5) {
-    console.log("GAME OVER: Congratulations! You're the winner!");
+    modal.classList.add("visible");
+    gameOver.innerHTML = "GAME OVER: Congratulations! You're the winner!";
   } else {
-    console.log("GAME OVER: Oh no! You lost...");
+    modal.classList.add("visible");
+    gameOver.innerHTML = "GAME OVER: Oh no! You lost...";
   }
 }
 
@@ -98,6 +106,8 @@ function updateUI(playerSelection, computerSelection) {
       computerSign.src = 'img/scissors.png'
       break
   }
-
-
 }
+
+function refreshPage(){
+  window.location.reload();
+} 
